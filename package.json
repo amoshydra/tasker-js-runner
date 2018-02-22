@@ -8,6 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "eslint": "^4.18.1"
-  }
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "8.0.0-beta.0",
+    "eslint": "^4.18.1",
+    "webpack": "^3.11.0"
+  },
+  "dependencies": {}
 }

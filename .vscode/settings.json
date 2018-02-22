@@ -3,4 +3,7 @@
 
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
+
+  // Turns auto fix on save on or off.
+  "eslint.autoFixOnSave": true,
 }
