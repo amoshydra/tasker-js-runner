@@ -4,16 +4,6 @@ var tasker = window;
 window.tasker = tasker;
 
 // Injecting development functions
-tasker.console = {
-  log(...params) {
-    tasker.flash(
-      params
-        .map(param => (typeof param === 'string') ? param : JSON.stringify(param))
-        .join(' ')
-    );
-  },
-};
-
 tasker.inspect = (target) => {
   const cache = [];
   return JSON.stringify(target, function(key, value) {
@@ -27,6 +17,15 @@ tasker.inspect = (target) => {
     }
     return value;
   });
+};
+tasker.console = {
+  log(...params) {
+    tasker.flash(
+      params
+        .map(param => (typeof param === 'string') ? param : tasker.inspect(param))
+        .join(' ')
+    );
+  },
 };
 
 tasker.getParams = () => {
