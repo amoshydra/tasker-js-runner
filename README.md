@@ -99,14 +99,14 @@ Coming soon...
 
 ### Installing
 1. Import the 3 tasks from the [`tasker-imports` folder](https://github.com/amoshydra/tasker-js-runner/tree/master/tasker-imports) into Tasker
-  - `TJS_Development_Toggle.tsk.xml`
-  - `TJS_RunScript.tsk.xml`
-  - `TJS_UpdateScript.tsk.xml`
+    - `TJS_Development_Toggle.tsk.xml`
+    - `TJS_RunScript.tsk.xml`
+    - `TJS_UpdateScript.tsk.xml`
 2. Run [TJS_Development_Toggle] inside Tasker to set up the required global variables
   When [TJS_Development_Toggle] is run for the first time, it will set up all the necessary Global variables for Tasker-JS to run.
-  - `%TJS_ENV` - Control the environment Tasker-JS-Runner to run `development`/`production`.
-  - `%TJS_DEV_REMOTE` - The remote address where the your project script (a seperate project that make use of this library) will be downloaded. You will need to change the value of this variable in this task to match the IP of your project.
-  - `%TJS_LOCAL_PATH` - The location where the project script will be saved (default to `Documents/tasker-js-runner.js`)
+    - `%TJS_ENV` - Control the environment Tasker-JS-Runner to run `development`/`production`.
+    - `%TJS_DEV_REMOTE` - The remote address where the your project script (a seperate project that make use of this library) will be downloaded. You will need to change the value of this variable in this task to match the IP of your project.
+    - `%TJS_LOCAL_PATH` - The location where the project script will be saved (default to `Documents/tasker-js-runner.js`)
 
 ### Using
 1. Create a Tasker named profile (i.e. `Notification:All`) and select `TJS:RunScript` as its task.
