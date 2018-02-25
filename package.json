@@ -4,6 +4,7 @@
   "description": "JavaScript for Tasker",
   "author": "Amos Wong <amoswwj@gmail.com>",
   "license": "MIT",
+  "main": "dist/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack"
   },
