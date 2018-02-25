@@ -1,6 +1,5 @@
 import tasker from './tasker';
 import Router from './router';
-import routes from './routes';
 
 const hotReload = () => {
   const environment = tasker.global('TJS_ENV');
@@ -23,12 +22,15 @@ const hotReload = () => {
     .catch(err => tasker.flash(err.message));
 };
 
-const router = new Router(routes, tasker);
+export default class TaskerJS {
+  constructor(routes) {
+    this.router = new Router(routes, tasker);
 
-hotReload()
-  .then(() =>
-    router.dispatch(tasker.locals)
-      .catch(err => tasker.flash(err.message))
-      .then(() => tasker.exit())
-  );
-
+    hotReload()
+      .then(() =>
+        this.router.dispatch(tasker.locals)
+          .catch(err => tasker.flash(err.message))
+          .then(() => tasker.exit())
+      );
+  }
+}
