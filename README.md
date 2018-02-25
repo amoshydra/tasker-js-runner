@@ -93,7 +93,7 @@ export default {
 ```
 
 ## Sample project
-Coming soon...
+https://github.com/amoshydra/tasker-js-runner-project
 
 ## Setup on Tasker
 
