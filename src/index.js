@@ -4,7 +4,7 @@ import Router from './router';
 const hotReload = () => {
   const environment = tasker.global('TJS_ENV');
 
-  if (environment !== 'development') return;
+  if (environment !== 'development') return Promise.resolve();
 
   return fetch(tasker.global('TJS_DEV_REMOTE'))
     .then(res => res.text())
