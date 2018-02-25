@@ -41,11 +41,14 @@ tasker.getParams = () => {
       } catch (err) {
         parsedParam = rawParam;
       }
-      return parsedParam;
+      return parsedParam === 'undefined' ? undefined : parsedParam;
     });
 };
 
-tasker.locals = local_keys
+// Attempt to restore param from upstream
+const localsJson = tasker.getParams()[0];
+
+tasker.locals = localsJson || local_keys
   .reduce((acc, key) => {
     const keyName = key.slice(1);
     acc[keyName] = tasker.local(keyName);

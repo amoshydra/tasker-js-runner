@@ -14,7 +14,11 @@ const hotReload = () => {
       if (existingFile !== result) {
         tasker.writeFile(tasker.global('TJS_LOCAL_PATH'), result);
         tasker.flash('script updated');
-        tasker.performTask('TJS:RunScript', window.priority, window.local_keys);
+        tasker.performTask(
+          'TJS:RunScript',
+          tasker.local('priority'),
+          JSON.stringify(tasker.locals)
+        );
         tasker.exit();
       }
 
