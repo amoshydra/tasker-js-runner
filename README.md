@@ -110,4 +110,4 @@ Coming soon...
 
 ### Using
 1. Create a Tasker named profile (i.e. `Notification:All`) and select `TJS:RunScript` as its task.
-2. Tasker-JS-Runner will detect the profile name and look execute the Javascipt module that's mapped into `Notification:All` in the Profile Map (see example from [above](#defining-profile-map-index-js)
+2. Tasker-JS-Runner will detect the profile name and look execute the Javascipt module that's mapped into `Notification:All` in the Profile Map (see example from [above](#defining-profile-map-indexjs)
