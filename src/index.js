@@ -1,5 +1,7 @@
+import TaskerJs from './tasker-js';
+// modules
 import notification from './modules/notification';
 
-export default {
+new TaskerJs({
   'Notification:All': notification,
-};
+});
