@@ -15,7 +15,7 @@ export default class Router {
       .then(() => {
         // Make route
         const callerInfo = locals.callerdebug || locals.caller2 || locals.caller1 || '';
-        var i = callerInfo.indexOf(':');
+        const i = callerInfo.indexOf(':');
         const caller = {
           type: callerInfo.slice(0, i).split('=')[1] || 'enter',
           route: callerInfo.slice(i + 1),
