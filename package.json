@@ -4,6 +4,11 @@
   "description": "JavaScript for Tasker",
   "author": "Amos Wong <amoswwj@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/amoshydra/tasker-js-runner",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:amoshydra/tasker-js-runner.git"
+  },
   "main": "dist/index.js",
   "module": "src/index.js",
   "files": [
