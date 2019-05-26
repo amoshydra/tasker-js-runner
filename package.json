@@ -6,6 +6,11 @@
   "license": "MIT",
   "main": "dist/index.js",
   "module": "src/index.js",
+  "files": [
+    "dist",
+    "src",
+    "tasker-imports"
+  ],
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack"
   },
