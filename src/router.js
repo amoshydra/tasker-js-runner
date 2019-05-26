@@ -4,11 +4,29 @@ export const ROUTE_TYPE = {
 };
 
 export const parseCallerId = (callerId) => {
-  const i = callerId.indexOf(':');
-  return {
-    type: callerId.slice(0, i).split('=')[1] || ROUTE_TYPE.Enter,
-    route: callerId.slice(i + 1),
-  };
+  const [callerSourceId, routeId] = callerId.split('=', 2);
+
+  switch (callerSourceId) {
+    case 'profile': {
+      const [callerType, callerRoute] = routeId.split(':', 2);
+      return {
+        type: callerType,
+        route: callerRoute,
+      };
+    }
+    case 'ui': return {
+      type: ROUTE_TYPE.Enter,
+      route: callerSourceId,
+    };
+    case 'task': return {
+      type: ROUTE_TYPE.Enter,
+      route: routeId,
+    };
+    default: return {
+      type: ROUTE_TYPE.Enter,
+      route: callerId,
+    };
+  }
 }
 
 export default class Router {
