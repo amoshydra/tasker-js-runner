@@ -5,6 +5,11 @@
   "author": "Amos Wong <amoswwj@gmail.com>",
   "license": "MIT",
   "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src",
+    "tasker-imports"
+  ],
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack"
   },
