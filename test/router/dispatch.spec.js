@@ -21,7 +21,7 @@ test('should dispatch routes.ui.enter function given invalid caller', async t =>
   const defaultUiEnterSpy = sinon.spy(router.routes.ui, 'enter');
 
   const locals = {
-    caller1: 'profile=enter:AnInvalidCallerId'
+    caller: ['profile=enter:AnInvalidCallerId']
   };
   await router.dispatch(locals);
 
@@ -37,7 +37,7 @@ test('should dispatch matching Profile enter caller', async t => {
   }, context);
 
   const locals = {
-    caller1: 'profile=enter:ValidCallerId'
+    caller: ['profile=enter:ValidCallerId']
   };
   await router.dispatch(locals);
 
@@ -53,7 +53,7 @@ test('should dispatch matching Profile exit caller', async t => {
   }, context);
 
   const locals = {
-    caller1: 'profile=exit:ValidCallerId'
+    caller: ['profile=exit:ValidCallerId']
   };
   await router.dispatch(locals);
 
@@ -69,7 +69,7 @@ test('should dispatch matching Task caller', async t => {
   }, context);
 
   const locals = {
-    caller1: 'task=ValidCallerId'
+    caller: ['task=ValidCallerId']
   };
   await router.dispatch(locals);
 
@@ -85,7 +85,7 @@ test('should dispatch matching UI caller', async t => {
   }, context);
 
   const locals = {
-    caller1: 'ui'
+    caller: ['ui']
   };
   await router.dispatch(locals);
 
@@ -101,7 +101,7 @@ test('should dispatch matching arbitary caller', async t => {
   }, context);
 
   const locals = {
-    caller1: 'NoneProfileOrTask=Enter:Name'
+    caller: ['NoneProfileOrTask=Enter:Name']
   };
   await router.dispatch(locals);
 

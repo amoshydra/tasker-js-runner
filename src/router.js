@@ -3,7 +3,7 @@ export const ROUTE_TYPE = {
   Exit: 'exit',
 };
 
-export const parseCallerId = (callerId) => {
+export const parseCallerId = (callerId = '') => {
   const [callerSourceId, routeId] = callerId.split('=', 2);
 
   switch (callerSourceId) {
@@ -45,7 +45,7 @@ export default class Router {
     return Promise.resolve()
       .then(() => {
         // Make route
-        const callerId = locals.callerdebug || locals.caller2 || locals.caller1 || '';
+        const callerId = locals.caller && locals.caller[locals.caller.length - 1];
         const caller = parseCallerId(callerId);
 
         // Go to route
