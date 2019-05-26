@@ -1,6 +1,6 @@
 {
   "name": "tasker-js-runner",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "JavaScript for Tasker",
   "author": "Amos Wong <amoswwj@gmail.com>",
   "license": "MIT",
