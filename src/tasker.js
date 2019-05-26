@@ -48,12 +48,17 @@ tasker.getParams = () => {
 // Attempt to restore param from upstream
 const localsJson = tasker.getParams()[0];
 
-tasker.locals = localsJson || local_keys
-  .reduce((acc, key) => {
-    const keyName = key.slice(1);
-    acc[keyName] = tasker.local(keyName);
-    return acc;
-  }, {});
-
+tasker.locals = ({
+  caller: (typeof caller === 'undefined') ? [] : caller,
+  ...(
+    ((typeof local_keys === 'undefined') ? [] : local_keys)
+      .reduce((acc, key) => {
+        const keyName = key.slice(1);
+        acc[keyName] = tasker.local(keyName);
+        return acc;
+      }, {})
+  ),
+  ...((typeof localsJson === 'object') ? localsJson : {}),
+});
 
 export default tasker;

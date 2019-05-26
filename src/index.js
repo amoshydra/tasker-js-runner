@@ -1,21 +1,28 @@
 import tasker from './tasker';
 import Router from './router';
 
+const CONFIG = {
+  Environment: tasker.global('TJS_ENV'),
+  RemoteUrl: tasker.global('TJS_DEV_REMOTE'),
+  LocalPath: tasker.global('TJS_LOCAL_PATH'),
+};
+const TASK = {
+  RunScript: 'TJS:RunScript',
+};
+
 const hotReload = () => {
-  const environment = tasker.global('TJS_ENV');
+  if (CONFIG.Environment !== 'development') return Promise.resolve();
 
-  if (environment !== 'development') return Promise.resolve();
-
-  return fetch(tasker.global('TJS_DEV_REMOTE'))
+  return fetch(CONFIG.RemoteUrl)
     .then(res => res.text())
     .then((result) => {
-      const existingFile = tasker.readFile(tasker.global('TJS_LOCAL_PATH'));
+      const existingFile = tasker.readFile(CONFIG.LocalPath);
 
       if (existingFile !== result) {
-        tasker.writeFile(tasker.global('TJS_LOCAL_PATH'), result);
+        tasker.writeFile(CONFIG.LocalPath, result);
         tasker.flash('script updated');
         tasker.performTask(
-          'TJS:RunScript',
+          TASK.RunScript,
           tasker.local('priority'),
           JSON.stringify(tasker.locals)
         );
