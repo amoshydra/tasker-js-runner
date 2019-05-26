@@ -14,10 +14,6 @@ export const parseCallerId = (callerId = '') => {
         route: callerRoute,
       };
     }
-    case 'ui': return {
-      type: ROUTE_TYPE.Enter,
-      route: callerSourceId,
-    };
     case 'task': return {
       type: ROUTE_TYPE.Enter,
       route: routeId,
@@ -33,9 +29,11 @@ export default class Router {
   constructor(routes, context) {
     this.context = context;
     this.routes = routes;
-    if (!this.routes.ui) {
-      this.routes.ui = {
-        enter() {},
+    if (!this.routes._errorHandler) {
+      this.routes._errorHandler = {
+        enter() {
+          context.console.log('No route matched')
+        },
         exit() {},
       };
     }
@@ -49,7 +47,7 @@ export default class Router {
         const caller = parseCallerId(callerId);
 
         // Go to route
-        const route = this.routes[caller.route] || this.routes.ui;
+        const route = this.routes[caller.route] || this.routes._errorHandler;
         return route[caller.type](locals, this.context);
       });
   }
