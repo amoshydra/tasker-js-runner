@@ -1,5 +1,7 @@
-import tasker from './tasker';
+import { initializeTaskerJs } from './tasker';
 import Router from './router';
+
+window.tasker = initializeTaskerJs(window);
 
 const CONFIG = {
   Environment: tasker.global('TJS_ENV'),
@@ -22,9 +24,10 @@ const hotReload = () => {
         tasker.writeFile(CONFIG.LocalPath, result);
         tasker.flash('script updated');
         tasker.performTask(
-          TASK.RunScript,
-          tasker.local('priority'),
-          JSON.stringify(tasker.locals)
+          /* Task name */ TASK.RunScript,
+          /* Priority */tasker.local('priority'),
+          /* par1 */ 'null',
+          /* par2 */ JSON.stringify(tasker.locals), // Supply par2 to overwrite context
         );
         tasker.exit();
       }
