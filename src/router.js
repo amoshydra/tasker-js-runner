@@ -3,15 +3,16 @@ export const ROUTE_TYPE = {
   Exit: 'exit',
 };
 
-export const parseCallerId = (callerId) => {
-  const [callerSourceId, routeId] = callerId.split('=', 2);
+export const parseCallerId = (callerId = '') => {
+  const [callerSourceId, ...splitedRouteId] = callerId.split('=');
+  const routeId = splitedRouteId.join('=');
 
   switch (callerSourceId) {
     case 'profile': {
-      const [callerType, callerRoute] = routeId.split(':', 2);
+      const [callerType, ...splittedCallerRoute] = routeId.split(':');
       return {
         type: callerType,
-        route: callerRoute,
+        route: splittedCallerRoute.join(':'),
       };
     }
     case 'ui': return {

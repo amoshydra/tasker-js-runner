@@ -13,6 +13,15 @@ test('should parse Profile enter syntax', t => {
   });
 });
 
+test('should parse Profile enter syntax with multiple equal and colon characters', t => {
+  const caller = parseCallerId('profile=enter:ProfileName=:=Name');
+
+  t.deepEqual(caller, {
+    type: ROUTE_TYPE.Enter,
+    route: 'ProfileName=:=Name'
+  });
+});
+
 test('should parse Profile exit syntax', t => {
   const caller = parseCallerId('profile=exit:ProfileName');
 
