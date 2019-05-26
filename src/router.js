@@ -14,7 +14,7 @@ export default class Router {
     return Promise.resolve()
       .then(() => {
         // Make route
-        const callerInfo = locals.callerdebug || locals.caller2 || locals.caller1;
+        const callerInfo = locals.callerdebug || locals.caller2 || locals.caller1 || '';
         var i = callerInfo.indexOf(':');
         const caller = {
           type: callerInfo.slice(0, i).split('=')[1] || 'enter',
