@@ -17,17 +17,26 @@
     "tasker-imports"
   ],
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production webpack",
+    "test": "ava"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "ava": "^1.4.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "8.0.6",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
+    "esm": "^3.2.25",
+    "sinon": "^7.3.2",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  }
 }
